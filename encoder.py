@@ -1,8 +1,12 @@
 from PIL import Image
-import numpy as np
-from scipy.io.wavfile import write
 from morse import MORSE
 
+from tkinter import filedialog
+import tkinter as tk
+
+root = tk.Tk()
+root.withdraw()  
+path = filedialog.askopenfilename()
 
 
 def convert(val):
@@ -14,9 +18,12 @@ def convert(val):
 
 
 
-img = Image.open("Image/mei.png").convert('RGB')
+img = Image.open(path).convert('RGB').resize((256,256))
+
+
 
 length, width = img.size
+
 
 pixel_morse=[]
 
